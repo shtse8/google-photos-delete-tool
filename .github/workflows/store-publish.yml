@@ -113,7 +113,7 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version-file: .bun-version
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
@@ -184,7 +184,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         if: steps.creds.outputs.ready == 'yes' && steps.state.outputs.status == 'pending'
         with:
-          bun-version: latest
+          bun-version-file: .bun-version
 
       - name: Install dependencies (CLI)
         if: steps.creds.outputs.ready == 'yes' && steps.state.outputs.status == 'pending'
